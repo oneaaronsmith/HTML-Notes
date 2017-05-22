@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- This document was created by Nick on Septebmer 21, 2016 -->
+
+<!-- Main Purpose: To show the diffent locations the jQuery library can be called. 
+		And the different ways to call the library. -->
+		
+<!-- References: 
+		1) http://www.w3schools.com/jquery/default.asp
+		2) http://www.w3schools.com/jquery/jquery_get_started.asp
+		3) http://www.w3schools.com/jquery/jquery_syntax.asp	
+-->
+<html>
+	<head>
+		<title>jQuery Location</title>  
+        <!-- We can link in a local copy of jQuery -->
+        <script src="jslibs/jquery-2.1.4.min.js"></script>
+    
+        <!-- Or we can use a Content Distribution Network (CDN) -->
+        <!--<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>-->
+        
+        <script>
+            // We can use jQuery through the single, global function called 'jQuery'
+            console.dir(jQuery);
+            
+            // We'll be using that function a lot though. Like this:
+            // jQuery(...)
+            
+            // So, it would be nice if there was an easier way.
+            /* $ is a valid variable name in JavaScript. jQuery uses it as an alias so 
+            		you don't have to type out 'jQuery' all the time. 
+            		In other words, $ == jQuery. */
+            // $()
+            console.dir($);
+            
+            // We can even make our own alias:
+            var jq = $;
+            console.dir(jq);
+            
+            /* Calling .noConflict() frees up the global '$' variable. This is typically 
+            	done when you're using more than one JavaScript library and one of those 
+            	libraries might also want to use $ as an alias. */
+            	
+            // Reference: http://api.jquery.com/jQuery.noConflict/
+            $.noConflict();
+            
+            // Now $ will be undefined
+			console.dir($);
+			
+			//to set it up again
+			var $ = jQuery; 
+			console.dir($); 
+        </script>
+	</head>
+	<body>
+	</body>
+</html>
