@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!-- This document was created by Nick on September 7, 2016-->
+
+<!-- Main Purpose: To show you how anaimations work and the proper sytanx 
+		for them across difference browsers. -->
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>CSS3 Animations</title>
+    <!-- Reference: http://www.w3schools.com/css/css3_animations.asp -->
+	<style>
+        /* We can animate from one set of CSS declarations to another */
+        
+        /* More specific for Chrome, Safari, Opera */
+        @-webkit-keyframes roll {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(720deg);
+            }
+        }
+        /*standard syntax */
+        @keyframes roll {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(1720deg);
+            }
+        }
+         /* ...or we can be more specific than below */
+        
+         /* This is for Chrome, Safari, Opera */
+        @-webkit-keyframes wiggle {
+            0% {
+                transform: rotate(0deg);
+            }
+            20% {
+                transform: rotate(20deg);
+            }
+            40% {
+                transform: rotate(-25deg);
+            }
+            60% {
+                transform: rotate(30deg);
+            }
+            70% {
+                transform: rotate(0deg);
+            }
+            80% {
+                transform: scale(1.4, 1.4);
+            }
+        }
+        /* standard syntax */
+        @keyframes wiggle {
+            0% {
+                transform: rotate(0deg);
+            }
+            20% {
+                transform: rotate(20deg);
+            }
+            40% {
+                transform: rotate(-25deg);
+            }
+            60% {
+                transform: rotate(30deg);
+            }
+            70% {
+                transform: rotate(0deg);
+            }
+            80% {
+                transform: scale(1.4, 1.4);
+            }
+        }
+        #myFirstAnimation {
+            width: 500px;
+            height: 150px;
+            padding: 10px;
+            border-radius: 30%; 
+            margin: 80px auto;
+            font-size: 2.5em;
+            text-align: center;
+            background-color: orange;
+            color: white;
+            
+            /* To apply the animation: */
+            -webkit-animation: wiggle 2s; /* Chrome, Safari, Opera */
+            animation: wiggle 2s; /* standard syntax */
+            
+            /* change animation to 4 seconds */
+        }
+        img {
+            height: 200px;
+            widows: 400px;
+        }
+	</style>
+</head>
+<body>
+	<div id="myFirstAnimation">
+		<p>Roll It Up!!</p>
+		
+		<!-- try it with this image  -->
+        <!--<img src="viper.png" alt="viper">-->
+        
+	</div>
+</body>
+</html>
