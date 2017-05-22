@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<!-- This document was created by Nickolas Wergeles on September 5, 2016 -->
+
+<!-- Main Purpose: To show you how to make and style HTML tables --> 
+
+<!-- Note: Prior to the creation of CSS, HTML <table> elements were often used as a method
+			for page layout. This usage has been discouraged sicne HTML4. -->
+<html>
+    <head>
+    	<meta charset="utf-8">
+        <title>HTML Tables</title>
+        <!--
+            References:
+                
+                *** NOTE: 1 is a requried reading for the course, read the page and go 
+                			through all of the examples, they are labeled "try it yourself" 
+                			with a big grean button. Exercises are optional. **** 
+                
+                1) http://www.w3schools.com/html/html_tables.asp
+                
+                2) https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
+                3) https://css-tricks.com/complete-guide-table-element/
+                4) https://css-tricks.com/how-nth-child-works/
+                5) https://css-tricks.com/examples/nth-child-tester/
+                6) https://css-tricks.com/useful-nth-child-recipies/
+                
+                7) http://www.w3.org/TR/html5/tabular-data.html#tabular-data
+        -->
+        <style>
+            #MizzouFootballTable th, #MizzouFootballTable td {
+                border: 3px solid black;
+                padding: 10px 20px;
+                font-size: 18pt;
+                height: 50px;
+            }
+            
+            #MizzouFootballTable {
+                width: 100%; 
+                border-collapse: collapse;
+            }
+            
+            
+            /* We could use a structural pseudo-class: */
+            
+            /* show them even and odd */
+            /*#MizzouFootballTable tr:nth-child(2n+3) {
+                background-color: goldenrod;
+            }
+            
+            #MizzouFootballTable tr:nth-child(2n){
+                background-color: darkgray; 
+            }*/
+            
+            #MizzouFootballTable .home {
+                background-color: goldenrod; 
+            }
+            
+            /* To color the odd rows, we could use a class: */
+            #MizzouFootballTable .away {
+                background-color: darkgray
+            } 
+            /* Each quality column value is the 4th <td> in our rows */
+            #MizzouFootballTable td:nth-child(4) {
+                text-align: center;
+            }
+            #MizzouFootballTable td:nth-child(6) {
+                text-align: center;
+                
+                /*show them how if you add height on one it will do them on all of them */
+               /* height: 50px; */
+            }
+            .emphasizeLoss {
+                background-color: crimson;
+                color: white;
+            }
+            .emphasizeWin {
+                background-color: limegreen;    
+            }
+            img {
+                vertical-align: middle;
+            }
+            .final_result {
+                border-radius: 8px;
+                -webkit-border-radius: 8px;
+                -moz-border-radius: 3px;
+                color: #fff;
+
+                /*font-size: 25px;
+                font-family: sans-serif;
+                font-style: italic; 
+                font-weight: bold;*/
+                /* This can be written the same as below */
+                font: italic bold 25px sans-serif; 
+                text-transform: uppercase;
+                padding: 8px;
+                text-align: center;
+            }
+            
+            .final_result.win {
+                background: #090;
+            }
+            .final_result.loss {
+                background: #C00; 
+            }
+            
+            img.mizzou {
+                width: 100px; 
+                height: 100px;
+            }
+            .header {
+                background-color: black; 
+            }
+            #text {
+                color: goldenrod; 
+                font-size: 36pt; 
+            }
+        </style>
+    </head>
+    <body>
+    	<!-- an html table is defined with the <table> tag -->
+        <table id="MizzouFootballTable">
+            
+        	<!-- Each table row is defined with the <tr> tag -->
+            <tr class="header">
+            	<!-- A table header is defined with the <th> tag -->
+                <th colspan="6"><p id="text">
+                				<img class="mizzou" src="images/mizzou.jpg" alt="mizzou"> 
+                				Mizzou Football Schedule 2016 
+                				<img class="mizzou" src="images/football.jpg" alt="mizzou">
+                				</p>
+                </th>
+            </tr>
+            <tr>
+                <th colspan="2">Date Time</th>
+                <th>Event</th>
+                <th>Location</th>
+                <th>Team</th>
+                <th>Score</th>
+            </tr>
+            <tr class="away">
+            	<!-- A table data/cell is defined with the <td> tag -->
+            	
+            	<!-- Note: The <td> elements are the data containers of the table.
+            				They can contain all sorts of HTML elements such as text,
+            				images, lists, other tables, etc. --> 
+                <td>Sat Sep 3</td>
+                <td>11 AM</td>
+                <td></td>
+                <td>@ West Virginia</td>
+                <td>Mountaineers</td>
+                
+                <!--<td class="emphasizeLoss">L 26 - 11 
+                		<img id="thumbsdown" src="thumbsdown.jpg" alt="thumbsdown">
+                	</td>-->
+                
+                <td><span class="final_result loss">loss</span> 26 - 11 
+                		<img id="thumbsdown" src="images/thumbsdown.jpg" alt="thumbsdown">
+                </td>
+            </tr>
+            <tr class="home">
+                <td>Sat Sep 10</td>
+                <td>6:30 PM</td>
+                <td></td>
+                <td>VS Eastern Michigan</td>
+                <td>Eagles</td>
+                <!--<td class="emphasizeWin">Nick's Prediction: <br> W 24 - 7</td>-->
+                
+                <!-- put the / in front the directory to test the students --> 
+                <td><p>My Prediction:</p><span class="final_result win">win</span> 24 - 7 
+                		<img id="thumbsup" src="images/thumbsup.jpg" alt="thumbsup">
+                </td>
+            </tr>
+            <tr class="home">
+                <td>Sat Sep 17</td>
+                <td>6:30 PM</td>
+                <td>Tiger Stripe Game</td>
+                <td>VS Georgia</td>
+                <td>Bulldogs</td>
+                <td rowspan="5">N/A</td>
+            </tr>
+            <tr class="home">
+                <td>Sat Sep 24</td>
+                <td>TBA</td>
+                <td></td>
+                <td>VS Delaware State</td>
+                <td>Hornets</td>
+                
+            </tr>
+            <tr class="away">
+                <td>Sat Oct 1</td>
+                <td>TBA</td>
+                <td></td>
+                <td>@ LSU</td>
+                <td>Tigers</td>
+                
+            </tr>
+            <tr class="away">
+                <td>Sat Oct 15</td>
+                <td>TBA</td>
+                <td></td>
+                <td>@ Florida</td>
+                <td>Gators</td>
+                
+            </tr>
+            <tr class="home">
+                <td>Sat Oct 22</td>
+                <td>TBA</td>
+                <td>Homecoming</td>
+                <td>VS Middle Tennesse</td>
+                <td>Blue Raiders</td>
+                
+            </tr>
+        </table>
+    </body>
+</html>
